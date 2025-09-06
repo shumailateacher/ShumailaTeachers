@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeacherShumaila - Learn English with Urdu Subtitles</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H60GNNZ24K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H60GNNZ24K');
+    </script>
+    
     <style>
         /* Global Styles */
         * {
@@ -272,6 +282,166 @@
             padding: 30px 0;
         }
         
+        /* New Categories Section */
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .category-card.greetings {
+            border-top: 5px solid #6e8efb;
+        }
+        
+        .category-card.questions {
+            border-top: 5px solid #ff6b6b;
+        }
+        
+        .category-card.travel {
+            border-top: 5px solid #4cd964;
+        }
+        
+        .category-card.food {
+            border-top: 5px solid #ff9500;
+        }
+        
+        .category-card.shopping {
+            border-top: 5px solid #ff3b30;
+        }
+        
+        .category-card.business {
+            border-top: 5px solid #007aff;
+        }
+        
+        .category-card.technology {
+            border-top: 5px solid #5856d6;
+        }
+        
+        .category-card.health {
+            border-top: 5px solid #ff2d55;
+        }
+        
+        .category-card.emergency {
+            border-top: 5px solid #ff3b30;
+        }
+        
+        .category-card.polite {
+            border-top: 5px solid #4cd964;
+        }
+        
+        /* Visitor Counter */
+        .visitor-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #6e8efb;
+            padding: 10px 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+        
+        /* Sentence Cards */
+        .sentence-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .sentence-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .sentence-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sentence-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .sentence-card-category {
+            background: #6e8efb;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .sentence-card-body {
+            margin-bottom: 15px;
+        }
+        
+        .sentence-card-english {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .sentence-card-urdu {
+            font-size: 16px;
+            color: #6e8efb;
+            font-family: 'Segoe UI', 'Noto Sans Urdu';
+            direction: rtl;
+        }
+        
+        .sentence-card-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .sentence-card-btn {
+            background: #6e8efb;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .sentence-card-btn:hover {
+            background: #5a7dfa;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -292,6 +462,16 @@
             
             .voice-btn {
                 width: 100%;
+            }
+            
+            .categories-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .visitor-counter {
+                top: 10px;
+                right: 10px;
+                font-size: 14px;
             }
         }
         
@@ -325,9 +505,38 @@
             align-items: center;
             gap: 8px;
         }
+        
+        /* Analytics Notification */
+        .analytics-notification {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #f8f9fa;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            max-width: 250px;
+            border-left: 4px solid #6e8efb;
+        }
     </style>
 </head>
 <body>
+    <!-- Visitor Counter -->
+    <div class="visitor-counter">
+        <i>👥</i> <span id="visitor-count">0</span> Visitors Today
+    </div>
+
+    <!-- Analytics Notification -->
+    <div class="analytics-notification">
+        <i>📊</i> Analytics enabled to improve your learning experience
+    </div>
+
     <!-- Teacher Badge -->
     <div class="teacher-badge">
         <i>👩‍🏫</i> Teacher Shumaila
@@ -343,7 +552,8 @@
                 <ul class="nav-links">
                     <li><a href="#lessons">Lessons</a></li>
                     <li><a href="#practice">Practice</a></li>
-                    <li><a href="#vocabulary">Vocabulary</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#sentence-cards">Sentence Cards</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
@@ -389,6 +599,77 @@
         </div>
     </section>
 
+    <!-- Categories Section -->
+    <section id="categories">
+        <div class="container">
+            <h2 class="section-title">Learning Categories</h2>
+            <div class="categories-container">
+                <div class="category-card greetings" onclick="filterSentencesByCategory('greetings')">
+                    <i>👋</i>
+                    <h3>Greetings</h3>
+                    <p>12 sentences</p>
+                </div>
+                <div class="category-card questions" onclick="filterSentencesByCategory('questions')">
+                    <i>❓</i>
+                    <h3>Questions</h3>
+                    <p>15 sentences</p>
+                </div>
+                <div class="category-card travel" onclick="filterSentencesByCategory('travel')">
+                    <i>✈️</i>
+                    <h3>Travel</h3>
+                    <p>18 sentences</p>
+                </div>
+                <div class="category-card food" onclick="filterSentencesByCategory('food')">
+                    <i>🍕</i>
+                    <h3>Food</h3>
+                    <p>14 sentences</p>
+                </div>
+                <div class="category-card shopping" onclick="filterSentencesByCategory('shopping')">
+                    <i>🛒</i>
+                    <h3>Shopping</h3>
+                    <p>10 sentences</p>
+                </div>
+                <div class="category-card business" onclick="filterSentencesByCategory('business')">
+                    <i>💼</i>
+                    <h3>Business</h3>
+                    <p>8 sentences</p>
+                </div>
+                <div class="category-card technology" onclick="filterSentencesByCategory('technology')">
+                    <i>💻</i>
+                    <h3>Technology</h3>
+                    <p>7 sentences</p>
+                </div>
+                <div class="category-card health" onclick="filterSentencesByCategory('health')">
+                    <i>🏥</i>
+                    <h3>Health</h3>
+                    <p>9 sentences</p>
+                </div>
+                <div class="category-card emergency" onclick="filterSentencesByCategory('emergency')">
+                    <i>🚨</i>
+                    <h3>Emergency</h3>
+                    <p>5 sentences</p>
+                </div>
+                <div class="category-card polite" onclick="filterSentencesByCategory('polite')">
+                    <i>🙏</i>
+                    <h3>Polite Phrases</h3>
+                    <p>6 sentences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sentence Cards Section -->
+    <section id="sentence-cards">
+        <div class="container">
+            <h2 class="section-title">Practice with Sentence Cards</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Click on any card to hear the pronunciation</p>
+            
+            <div class="sentence-cards" id="sentence-cards-container">
+                <!-- Sentence cards will be generated here -->
+            </div>
+        </div>
+    </section>
+
     <!-- Practice Section -->
     <section id="practice">
         <div class="container">
@@ -404,6 +685,9 @@
                     <option value="shopping">Shopping</option>
                     <option value="business">Business</option>
                     <option value="technology">Technology</option>
+                    <option value="health">Health</option>
+                    <option value="emergency">Emergency</option>
+                    <option value="polite">Polite Phrases</option>
                 </select>
             </div>
             
@@ -462,171 +746,239 @@
     <!-- JavaScript -->
     <script>
         // In a real implementation, this would be loaded from an external file or database
-let sentences = [
-    { english: "Hello, how are you today?", urdu: "ہیلو، آپ آج کیسے ہیں؟", category: "greetings" },
-    { english: "What is your name?", urdu: "آپ کا نام کیا ہے؟", category: "questions" },
-    { english: "Where are you from?", urdu: "آپ کہاں سے ہیں؟", category: "questions" },
-    { english: "I am learning English.", urdu: "میں انگریزی سیکھ رہا ہوں۔", category: "general" },
-    { english: "Can you help me, please?", urdu: "کیا آپ میری مدد کر سکتے ہیں؟", category: "questions" },
-    { english: "How much does this cost?", urdu: "اس کی قیمت کیا ہے؟", category: "shopping" },
-    { english: "I don't understand.", urdu: "میں نہیں سمجھا۔", category: "general" },
-    { english: "Could you repeat that, please?", urdu: "کیا آپ اسے دہرا سکتے ہیں؟", category: "questions" },
-    { english: "What time is it?", urdu: "کتنے بجے ہیں؟", category: "questions" },
-    { english: "Where is the bathroom?", urdu: "باتھ روم کہاں ہے؟", category: "travel" },
-    { english: "I would like to order food.", urdu: "میں کھانا آرڈر کرنا چاہوں گا۔", category: "food" },
-    { english: "How is the weather today?", urdu: "آج موسم کیسا ہے؟", category: "general" },
-    { english: "Can I have the bill, please?", urdu: "کیا میں بل لا سکتا ہوں؟", category: "food" },
-    { english: "What do you recommend?", urdu: "آپ کیا تجویز کرتے ہیں؟", category: "questions" },
-    { english: "I need to go to the hospital.", urdu: "مجھے ہسپتال جانا ہے۔", category: "travel" },
-    { english: "Where can I find a taxi?", urdu: "میں ٹیکسی کہاں سے تلاش کروں؟", category: "travel" },
-    { english: "What is your phone number?", urdu: "آپ کا فون نمبر کیا ہے؟", category: "questions" },
-    { english: "I'm sorry for the inconvenience.", urdu: "معذرت چاہتا ہوں پریشانی کے لیے۔", category: "general" },
-    { english: "Could you speak more slowly?", urdu: "کیا آپ تھوڑا آہستہ بول سکتے ہیں؟", category: "questions" },
-    { english: "I love this place.", urdu: "مجھے یہ جگہ پسند ہے۔", category: "general" },
+        let sentences = [
+            { english: "Hello, how are you today?", urdu: "ہیلو، آپ آج کیسے ہیں؟", category: "greetings" },
+            { english: "What is your name?", urdu: "آپ کا نام کیا ہے؟", category: "questions" },
+            { english: "Where are you from?", urdu: "آپ کہاں سے ہیں؟", category: "questions" },
+            { english: "I am learning English.", urdu: "میں انگریزی سیکھ رہا ہوں۔", category: "general" },
+            { english: "Can you help me, please?", urdu: "کیا آپ میری مدد کر سکتے ہیں؟", category: "questions" },
+            { english: "How much does this cost?", urdu: "اس کی قیمت کیا ہے؟", category: "shopping" },
+            { english: "I don't understand.", urdu: "میں نہیں سمجھا۔", category: "general" },
+            { english: "Could you repeat that, please?", urdu: "کیا آپ اسے دہرا سکتے ہیں؟", category: "questions" },
+            { english: "What time is it?", urdu: "کتنے بجے ہیں؟", category: "questions" },
+            { english: "Where is the bathroom?", urdu: "باتھ روم کہاں ہے؟", category: "travel" },
+            { english: "I would like to order food.", urdu: "میں کھانا آرڈر کرنا چاہوں گا۔", category: "food" },
+            { english: "How is the weather today?", urdu: "آج موسم کیسا ہے؟", category: "general" },
+            { english: "Can I have the bill, please?", urdu: "کیا میں بل لا سکتا ہوں؟", category: "food" },
+            { english: "What do you recommend?", urdu: "آپ کیا تجویز کرتے ہیں؟", category: "questions" },
+            { english: "I need to go to the hospital.", urdu: "مجھے ہسپتال جانا ہے۔", category: "travel" },
+            { english: "Where can I find a taxi?", urdu: "میں ٹیکسی کہاں سے تلاش کروں؟", category: "travel" },
+            { english: "What is your phone number?", urdu: "آپ کا فون نمبر کیا ہے؟", category: "questions" },
+            { english: "I'm sorry for the inconvenience.", urdu: "معذرت چاہتا ہوں پریشانی کے لیے۔", category: "general" },
+            { english: "Could you speak more slowly?", urdu: "کیا آپ تھوڑا آہستہ بول سکتے ہیں؟", category: "questions" },
+            { english: "I love this place.", urdu: "مجھے یہ جگہ پسند ہے۔", category: "general" },
+            { english: "I am going to the park.", urdu: "میں پارک جا رہا ہوں۔", category: "general" },
+            { english: "Do you have a reservation?", urdu: "کیا آپ کے پاس ریزرویشن ہے؟", category: "travel" },
+            { english: "I would like a single room.", urdu: "میں ایک سنگل روم چاہوں گا۔", category: "travel" },
+            { english: "I would like a double room.", urdu: "میں ایک ڈبل روم چاہوں گا۔", category: "travel" },
+            { english: "Is breakfast included?", urdu: "کیا ناشتہ شامل ہے؟", category: "food" },
+            { english: "What is the Wi-Fi password?", urdu: "Wi-Fi کا پاسورڈ کیا ہے؟", category: "general" },
+            { english: "I need a charger.", urdu: "مجھے چارجر چاہیے۔", category: "general" },
+            { english: "I like this song.", urdu: "مجھے یہ گانا پسند ہے۔", category: "general" },
+            { english: "Where is the nearest supermarket?", urdu: "قریب ترین سپر مارکیٹ کہاں ہے؟", category: "shopping" },
+            { english: "I want to buy a ticket to the city.", urdu: "میں شہر کے لیے ٹکٹ خریدنا چاہتا ہوں۔", category: "travel" },
+            { english: "Can I try this on?", urdu: "کیا میں یہ پہن کر دیکھ سکتا ہوں؟", category: "shopping" },
+            { english: "I need directions to the museum.", urdu: "مجھے میوزیم کے لیے راستہ چاہیے۔", category: "travel" },
+            { english: "Do you have vegetarian food?", urdu: "کیا آپ کے پاس سبزی خور کھانا ہے؟", category: "food" },
+            { english: "Can I have some sugar?", urdu: "کیا میں کچھ چینی لے سکتا ہوں؟", category: "food" },
+            { english: "I am waiting for a friend.", urdu: "میں دوست کا انتظار کر رہا ہوں۔", category: "general" },
+            { english: "Can you show me the way?", urdu: "کیا آپ مجھے راستہ دکھا سکتے ہیں؟", category: "questions" },
+            { english: "I like to watch movies.", urdu: "مجھے فلمیں دیکھنا پسند ہے۔", category: "general" },
+            { english: "I am going shopping tomorrow.", urdu: "میں کل خریداری جا رہا ہوں۔", category: "shopping" },
+            { english: "Can I pay by card?", urdu: "کیا میں کارڈ سے ادائیگی کر سکتا ہوں؟", category: "shopping" },
+            { english: "Can you take a photo of me?", urdu: "کیا آپ میری تصویر لے سکتے ہیں؟", category: "general" },
+            { english: "Where can I rent a car?", urdu: "میں گاڑی کہاں سے کرایہ پر لے سکتا ہوں؟", category: "travel" },
+            { english: "I like to travel.", urdu: "مجھے سفر کرنا پسند ہے۔", category: "general" },
+            { english: "I am going to the library.", urdu: "میں لائبریری جا رہا ہوں۔", category: "general" },
+            { english: "Do you have English newspapers?", urdu: "کیا آپ کے پاس انگریزی اخبارات ہیں؟", category: "general" },
+            { english: "I need some help.", urdu: "مجھے کچھ مدد چاہیے۔", category: "questions" },
+            { english: "Where can I buy a bus ticket?", urdu: "میں بس کا ٹکٹ کہاں سے خرید سکتا ہوں؟", category: "travel" },
+            { english: "I want to go sightseeing.", urdu: "میں سیر کرنا چاہتا ہوں۔", category: "travel" },
+            { english: "Can you recommend a good restaurant?", urdu: "کیا آپ اچھے ریستوران کی سفارش کر سکتے ہیں؟", category: "food" },
+            { english: "I am going to the beach.", urdu: "میں ساحل پر جا رہا ہوں۔", category: "travel" },
+            { english: "I like this hotel.", urdu: "مجھے یہ ہوٹل پسند ہے۔", category: "travel" },
+            { english: "Do you have a menu in English?", urdu: "کیا آپ کے پاس انگریزی مینو ہے؟", category: "food" },
+            { english: "I am going to the cinema.", urdu: "میں سینما جا رہا ہوں۔", category: "general" },
+            { english: "Can you call a taxi for me?", urdu: "کیا آپ میرے لیے ٹیکسی بلا سکتے ہیں؟", category: "travel" },
+            { english: "I am going to the market.", urdu: "میں مارکیٹ جا رہا ہوں۔", category: "shopping" },
+            { english: "Can I have a glass of water?", urdu: "کیا میں ایک گلاس پانی لے سکتا ہوں؟", category: "food" },
+            { english: "I want to buy a souvenir.", urdu: "میں ایک یادگاری تحفہ خریدنا چاہتا ہوں۔", category: "shopping" },
+            { english: "I am going to the airport.", urdu: "میں ایئرپورٹ جا رہا ہوں۔", category: "travel" },
+            { english: "I need to buy some medicine.", urdu: "مجھے کچھ دوا خریدنی ہے۔", category: "health" },
+            { english: "I would like to have breakfast.", urdu: "میں ناشتہ کرنا چاہوں گا۔", category: "food" },
+            { english: "Do you have Wi-Fi here?", urdu: "کیا یہاں وائی فائی ہے؟", category: "general" },
+            { english: "I like to listen to music.", urdu: "مجھے موسیقی سننا پسند ہے۔", category: "general" },
+            { english: "I am learning new words.", urdu: "میں نئے الفاظ سیکھ رہا ہوں۔", category: "general" },
+            { english: "Can you teach me some Urdu?", urdu: "کیا آپ مجھے کچھ اردو سکھا سکتے ہیں؟", category: "questions" },
+            { english: "I would like to order dessert.", urdu: "میں مٹھائی آرڈر کرنا چاہوں گا۔", category: "food" },
+            { english: "Where is the nearest bus stop?", urdu: "قریب ترین بس اسٹاپ کہاں ہے؟", category: "travel" },
+            { english: "I am going to meet my friend.", urdu: "میں اپنے دوست سے ملنے جا رہا ہوں۔", category: "general" },
+            { english: "I want to go hiking.", urdu: "میں ہائیکنگ پر جانا چاہتا ہوں۔", category: "general" },
+            { english: "Do you have a map of the city?", urdu: "کیا آپ کے پاس شہر کا نقشہ ہے؟", category: "travel" },
+            { english: "I would like to have lunch.", urdu: "میں دوپہر کا کھانا لینا چاہوں گا۔", category: "food" },
+            { english: "Can I have a receipt?", urdu: "کیا میں رسید لے سکتا ہوں؟", category: "shopping" },
+            { english: "I want to visit a museum.", urdu: "میں میوزیم جانا چاہتا ہوں۔", category: "travel" },
+            { english: "I am going to the restaurant.", urdu: "میں ریستوران جا رہا ہوں۔", category: "food" },
+            { english: "Can you recommend a good cafe?", urdu: "کیا آپ اچھے کیفے کی سفارش کر سکتے ہیں؟", category: "food" },
+            { english: "I want to buy some clothes.", urdu: "میں کچھ کپڑے خریدنا چاہتا ہوں۔", category: "shopping" },
+            { english: "Good morning!", urdu: "صبح بخیر!", category: "greetings" },
+            { english: "Good night!", urdu: "شب بخیر!", category: "greetings" },
+            { english: "See you later.", urdu: "بعد میں ملیں گے۔", category: "greetings" },
+            { english: "Thank you very much.", urdu: "آپ کا بہت شکریہ۔", category: "polite" },
+            { english: "You're welcome.", urdu: "خوش آمدید۔", category: "polite" },
+            { english: "Excuse me.", urdu: "معاف کیجیے۔", category: "polite" },
+            { english: "I am tired.", urdu: "میں تھک گیا ہوں۔", category: "general" },
+            { english: "I am hungry.", urdu: "مجھے بھوک لگی ہے۔", category: "general" },
+            { english: "I am thirsty.", urdu: "مجھے پیاس لگی ہے۔", category: "general" },
+            { english: "Where is the train station?", urdu: "ٹرین اسٹیشن کہاں ہے؟", category: "travel" },
+            { english: "How far is the airport?", urdu: "ایئرپورٹ کتنی دور ہے؟", category: "travel" },
+            { english: "I need a doctor.", urdu: "مجھے ڈاکٹر کی ضرورت ہے۔", category: "health" },
+            { english: "Call the police!", urdu: "پولیس کو بلائیں!", category: "emergency" },
+            { english: "Help me, please!", urdu: "میری مدد کریں، براہ کرم!", category: "emergency" },
+            { english: "I am lost.", urdu: "میں کھو گیا ہوں۔", category: "emergency" },
+            { english: "Where is the hotel?", urdu: "ہوٹل کہاں ہے؟", category: "travel" },
+            { english: "I would like some water.", urdu: "میں کچھ پانی چاہوں گا۔", category: "food" },
+            { english: "I would like some tea.", urdu: "میں کچھ چائے چاہوں گا۔", category: "food" },
+            { english: "I would like some coffee.", urdu: "میں کچھ کافی چاہوں گا۔", category: "food" },
+            { english: "Can I have some juice?", urdu: "کیا میں کچھ جوس لے سکتا ہوں؟", category: "food" },
+            { english: "Where is the nearest restaurant?", urdu: "قریب ترین ریستوران کہاں ہے؟", category: "food" },
+            { english: "Do you speak English?", urdu: "کیا آپ انگریزی بولتے ہیں؟", category: "questions" },
+            { english: "I speak a little English.", urdu: "میں تھوڑی انگریزی بولتا ہوں۔", category: "general" },
+            { english: "I don't speak Urdu well.", urdu: "میں اردو اچھی نہیں بولتا۔", category: "general" },
+            { english: "Can you write it down?", urdu: "کیا آپ اسے لکھ سکتے ہیں؟", category: "questions" },
+            { english: "I need a map.", urdu: "مجھے نقشہ چاہیے۔", category: "travel" },
+            { english: "I am looking for a pharmacy.", urdu: "میں ایک فارمیسی تلاش کر رہا ہوں۔", category: "health" },
+            { english: "I am allergic to peanuts.", urdu: "مجھے مونگ پھلی سے الرجی ہے۔", category: "health" },
+            { english: "I am feeling sick.", urdu: "میں بیمار محسوس کر رہا ہوں۔", category: "health" },
+            { english: "Do you have a menu?", urdu: "کیا آپ کے پاس مینو ہے؟", category: "food" },
+            { english: "I would like to pay by card.", urdu: "میں کارڈ سے ادائیگی کرنا چاہتا ہوں۔", category: "shopping" },
+            { english: "I would like to pay in cash.", urdu: "میں نقد ادائیگی کرنا چاہتا ہوں۔", category: "shopping" },
+            { english: "Where is the nearest ATM?", urdu: "قریب ترین اے ٹی ایم کہاں ہے؟", category: "travel" },
+            { english: "I need a taxi.", urdu: "مجھے ایک ٹیکسی چاہیے۔", category: "travel" },
+            { english: "I want to buy a ticket.", urdu: "میں ٹکٹ خریدنا چاہتا ہوں۔", category: "shopping" },
+            { english: "Do you accept credit cards?", urdu: "کیا آپ کریڈٹ کارڈ قبول کرتے ہیں؟", category: "shopping" },
+            { english: "Where can I buy a SIM card?", urdu: "میں سیم کارڈ کہاں خرید سکتا ہوں؟", category: "shopping" },
+            { english: "I like this city.", urdu: "مجھے یہ شہر پسند ہے۔", category: "general" },
+            { english: "I like this restaurant.", urdu: "مجھے یہ ریستوران پسند ہے۔", category: "food" },
+            { english: "I am learning Urdu.", urdu: "میں اردو سیکھ رہا ہوں۔", category: "general" },
+            { english: "Can you recommend a good hotel?", urdu: "کیا آپ اچھے ہوٹل کی سفارش کر سکتے ہیں؟", category: "travel" },
+            { english: "I would like to check in.", urdu: "میں چیک ان کرنا چاہوں گا۔", category: "travel" },
+            { english: "I would like to check out.", urdu: "میں چیک آؤٹ کرنا چاہوں گا۔", category: "travel" },
+            { english: "Can I have a receipt, please?", urdu: "کیا میں رسید حاصل کر سکتا ہوں؟", category: "shopping" },
+            { english: "Where is the bus station?", urdu: "بس اسٹیشن کہاں ہے؟", category: "travel" },
+            { english: "Is there a hospital nearby?", urdu: "کیا قریبی ہسپتال ہے؟", category: "health" },
+            { english: "I need some medicine.", urdu: "مجھے کچھ دوا چاہیے۔", category: "health" },
+            { english: "Do you have a doctor available?", urdu: "کیا ڈاکٹر دستیاب ہے؟", category: "health" },
+            { english: "I like to read books.", urdu: "مجھے کتابیں پڑھنا پسند ہے۔", category: "general" },
+            { english: "I enjoy listening to music.", urdu: "مجھے موسیقی سننا پسند ہے۔", category: "general" },
+            { english: "I am going shopping.", urdu: "میں خریداری کے لیے جا رہا ہوں۔", category: "shopping" },
+            { english: "I want to buy groceries.", urdu: "میں سبزی اور خوراک خریدنا چاہتا ہوں۔", category: "shopping" },
+            { english: "I need to go to the bank.", urdu: "مجھے بینک جانا ہے۔", category: "travel" },
+            { english: "I need directions to the airport.", urdu: "مجھے ایئرپورٹ کے لیے ہدایات چاہیے۔", category: "travel" }
+        ];
 
+        // Visitor counter functionality
+        function updateVisitorCounter() {
+            // Get today's date as a string to use as a key
+            const today = new Date().toDateString();
+            
+            // Try to get today's count from localStorage
+            let dailyCount = localStorage.getItem(`visitor_count_${today}`);
+            
+            // If no count exists for today, initialize it
+            if (!dailyCount) {
+                // Reset all previous day counts
+                const keys = Object.keys(localStorage);
+                keys.forEach(key => {
+                    if (key.startsWith('visitor_count_')) {
+                        localStorage.removeItem(key);
+                    }
+                });
+                
+                // Set today's count to 1
+                dailyCount = 1;
+                localStorage.setItem(`visitor_count_${today}`, dailyCount);
+            } else {
+                // Increment the count
+                dailyCount = parseInt(dailyCount) + 1;
+                localStorage.setItem(`visitor_count_${today}`, dailyCount);
+            }
+            
+            // Update the counter display
+            document.getElementById('visitor-count').textContent = dailyCount;
+            
+            // Track the page view with Google Analytics
+            gtag('event', 'page_view', {
+                'page_title': document.title,
+                'page_location': window.location.href,
+                'visitor_count': dailyCount
+            });
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-// 50 more sentences
-
-    { english: "I am going to the park.", urdu: "میں پارک جا رہا ہوں۔", category: "general" },
-    { english: "Do you have a reservation?", urdu: "کیا آپ کے پاس ریزرویشن ہے؟", category: "travel" },
-    { english: "I would like a single room.", urdu: "میں ایک سنگل روم چاہوں گا۔", category: "travel" },
-    { english: "I would like a double room.", urdu: "میں ایک ڈبل روم چاہوں گا۔", category: "travel" },
-    { english: "Is breakfast included?", urdu: "کیا ناشتہ شامل ہے؟", category: "food" },
-    { english: "What is the Wi-Fi password?", urdu: "Wi-Fi کا پاسورڈ کیا ہے؟", category: "general" },
-    { english: "I need a charger.", urdu: "مجھے چارجر چاہیے۔", category: "general" },
-    { english: "I like this song.", urdu: "مجھے یہ گانا پسند ہے۔", category: "general" },
-    { english: "Where is the nearest supermarket?", urdu: "قریب ترین سپر مارکیٹ کہاں ہے؟", category: "shopping" },
-    { english: "I want to buy a ticket to the city.", urdu: "میں شہر کے لیے ٹکٹ خریدنا چاہتا ہوں۔", category: "travel" },
-    { english: "Can I try this on?", urdu: "کیا میں یہ پہن کر دیکھ سکتا ہوں؟", category: "shopping" },
-    { english: "I need directions to the museum.", urdu: "مجھے میوزیم کے لیے راستہ چاہیے۔", category: "travel" },
-    { english: "Do you have vegetarian food?", urdu: "کیا آپ کے پاس سبزی خور کھانا ہے؟", category: "food" },
-    { english: "Can I have some sugar?", urdu: "کیا میں کچھ چینی لے سکتا ہوں؟", category: "food" },
-    { english: "I am waiting for a friend.", urdu: "میں دوست کا انتظار کر رہا ہوں۔", category: "general" },
-    { english: "Can you show me the way?", urdu: "کیا آپ مجھے راستہ دکھا سکتے ہیں؟", category: "questions" },
-    { english: "I like to watch movies.", urdu: "مجھے فلمیں دیکھنا پسند ہے۔", category: "general" },
-    { english: "I am going shopping tomorrow.", urdu: "میں کل خریداری جا رہا ہوں۔", category: "shopping" },
-    { english: "Can I pay by card?", urdu: "کیا میں کارڈ سے ادائیگی کر سکتا ہوں؟", category: "shopping" },
-    { english: "Can you take a photo of me?", urdu: "کیا آپ میری تصویر لے سکتے ہیں؟", category: "general" },
-    { english: "Where can I rent a car?", urdu: "میں گاڑی کہاں سے کرایہ پر لے سکتا ہوں؟", category: "travel" },
-    { english: "I like to travel.", urdu: "مجھے سفر کرنا پسند ہے۔", category: "general" },
-    { english: "I am going to the library.", urdu: "میں لائبریری جا رہا ہوں۔", category: "general" },
-    { english: "Do you have English newspapers?", urdu: "کیا آپ کے پاس انگریزی اخبارات ہیں؟", category: "general" },
-    { english: "I need some help.", urdu: "مجھے کچھ مدد چاہیے۔", category: "questions" },
-    { english: "Where can I buy a bus ticket?", urdu: "میں بس کا ٹکٹ کہاں سے خرید سکتا ہوں؟", category: "travel" },
-    { english: "I want to go sightseeing.", urdu: "میں سیر کرنا چاہتا ہوں۔", category: "travel" },
-    { english: "Can you recommend a good restaurant?", urdu: "کیا آپ اچھے ریستوران کی سفارش کر سکتے ہیں؟", category: "food" },
-    { english: "I am going to the beach.", urdu: "میں ساحل پر جا رہا ہوں۔", category: "travel" },
-    { english: "I like this hotel.", urdu: "مجھے یہ ہوٹل پسند ہے۔", category: "travel" },
-    { english: "Do you have a menu in English?", urdu: "کیا آپ کے پاس انگریزی مینو ہے؟", category: "food" },
-    { english: "I am going to the cinema.", urdu: "میں سینما جا رہا ہوں۔", category: "general" },
-    { english: "Can you call a taxi for me?", urdu: "کیا آپ میرے لیے ٹیکسی بلا سکتے ہیں؟", category: "travel" },
-    { english: "I am going to the market.", urdu: "میں مارکیٹ جا رہا ہوں۔", category: "shopping" },
-    { english: "Can I have a glass of water?", urdu: "کیا میں ایک گلاس پانی لے سکتا ہوں؟", category: "food" },
-    { english: "I want to buy a souvenir.", urdu: "میں ایک یادگاری تحفہ خریدنا چاہتا ہوں۔", category: "shopping" },
-    { english: "I am going to the airport.", urdu: "میں ایئرپورٹ جا رہا ہوں۔", category: "travel" },
-    { english: "I need to buy some medicine.", urdu: "مجھے کچھ دوا خریدنی ہے۔", category: "health" },
-    { english: "I would like to have breakfast.", urdu: "میں ناشتہ کرنا چاہوں گا۔", category: "food" },
-    { english: "Do you have Wi-Fi here?", urdu: "کیا یہاں وائی فائی ہے؟", category: "general" },
-    { english: "I like to listen to music.", urdu: "مجھے موسیقی سننا پسند ہے۔", category: "general" },
-    { english: "I am learning new words.", urdu: "میں نئے الفاظ سیکھ رہا ہوں۔", category: "general" },
-    { english: "Can you teach me some Urdu?", urdu: "کیا آپ مجھے کچھ اردو سکھا سکتے ہیں؟", category: "questions" },
-    { english: "I would like to order dessert.", urdu: "میں مٹھائی آرڈر کرنا چاہوں گا۔", category: "food" },
-    { english: "Where is the nearest bus stop?", urdu: "قریب ترین بس اسٹاپ کہاں ہے؟", category: "travel" },
-    { english: "I am going to meet my friend.", urdu: "میں اپنے دوست سے ملنے جا رہا ہوں۔", category: "general" },
-    { english: "I want to go hiking.", urdu: "میں ہائیکنگ پر جانا چاہتا ہوں۔", category: "general" },
-    { english: "Do you have a map of the city?", urdu: "کیا آپ کے پاس شہر کا نقشہ ہے؟", category: "travel" },
-    { english: "I would like to have lunch.", urdu: "میں دوپہر کا کھانا لینا چاہوں گا۔", category: "food" },
-    { english: "Can I have a receipt?", urdu: "کیا میں رسید لے سکتا ہوں؟", category: "shopping" },
-    { english: "I want to visit a museum.", urdu: "میں میوزیم جانا چاہتا ہوں۔", category: "travel" },
-    { english: "I am going to the restaurant.", urdu: "میں ریستوران جا رہا ہوں۔", category: "food" },
-    { english: "Can you recommend a good cafe?", urdu: "کیا آپ اچھے کیفے کی سفارش کر سکتے ہیں؟", category: "food" },
-    { english: "I want to buy some clothes.", urdu: "میں کچھ کپڑے خریدنا چاہتا ہوں۔", category: "shopping" },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // 50 new sentences added below
-    { english: "Good morning!", urdu: "صبح بخیر!", category: "greetings" },
-    { english: "Good night!", urdu: "شب بخیر!", category: "greetings" },
-    { english: "See you later.", urdu: "بعد میں ملیں گے۔", category: "greetings" },
-    { english: "Thank you very much.", urdu: "آپ کا بہت شکریہ۔", category: "polite" },
-    { english: "You're welcome.", urdu: "خوش آمدید۔", category: "polite" },
-    { english: "Excuse me.", urdu: "معاف کیجیے۔", category: "polite" },
-    { english: "I am tired.", urdu: "میں تھک گیا ہوں۔", category: "general" },
-    { english: "I am hungry.", urdu: "مجھے بھوک لگی ہے۔", category: "general" },
-    { english: "I am thirsty.", urdu: "مجھے پیاس لگی ہے۔", category: "general" },
-    { english: "Where is the train station?", urdu: "ٹرین اسٹیشن کہاں ہے؟", category: "travel" },
-    { english: "How far is the airport?", urdu: "ایئرپورٹ کتنی دور ہے؟", category: "travel" },
-    { english: "I need a doctor.", urdu: "مجھے ڈاکٹر کی ضرورت ہے۔", category: "travel" },
-    { english: "Call the police!", urdu: "پولیس کو بلائیں!", category: "emergency" },
-    { english: "Help me, please!", urdu: "میری مدد کریں، براہ کرم!", category: "emergency" },
-    { english: "I am lost.", urdu: "میں کھو گیا ہوں۔", category: "emergency" },
-    { english: "Where is the hotel?", urdu: "ہوٹل کہاں ہے؟", category: "travel" },
-    { english: "I would like some water.", urdu: "میں کچھ پانی چاہوں گا۔", category: "food" },
-    { english: "I would like some tea.", urdu: "میں کچھ چائے چاہوں گا۔", category: "food" },
-    { english: "I would like some coffee.", urdu: "میں کچھ کافی چاہوں گا۔", category: "food" },
-    { english: "Can I have some juice?", urdu: "کیا میں کچھ جوس لے سکتا ہوں؟", category: "food" },
-    { english: "Where is the nearest restaurant?", urdu: "قریب ترین ریستوران کہاں ہے؟", category: "food" },
-    { english: "Do you speak English?", urdu: "کیا آپ انگریزی بولتے ہیں؟", category: "questions" },
-    { english: "I speak a little English.", urdu: "میں تھوڑی انگریزی بولتا ہوں۔", category: "general" },
-    { english: "I don’t speak Urdu well.", urdu: "میں اردو اچھی نہیں بولتا۔", category: "general" },
-    { english: "Can you write it down?", urdu: "کیا آپ اسے لکھ سکتے ہیں؟", category: "questions" },
-    { english: "I need a map.", urdu: "مجھے نقشہ چاہیے۔", category: "travel" },
-    { english: "I am looking for a pharmacy.", urdu: "میں ایک فارمیسی تلاش کر رہا ہوں۔", category: "travel" },
-    { english: "I am allergic to peanuts.", urdu: "مجھے مونگ پھلی سے الرجی ہے۔", category: "health" },
-    { english: "I am feeling sick.", urdu: "میں بیمار محسوس کر رہا ہوں۔", category: "health" },
-    { english: "Do you have a menu?", urdu: "کیا آپ کے پاس مینو ہے؟", category: "food" },
-    { english: "I would like to pay by card.", urdu: "میں کارڈ سے ادائیگی کرنا چاہتا ہوں۔", category: "shopping" },
-    { english: "I would like to pay in cash.", urdu: "میں نقد ادائیگی کرنا چاہتا ہوں۔", category: "shopping" },
-    { english: "Where is the nearest ATM?", urdu: "قریب ترین اے ٹی ایم کہاں ہے؟", category: "travel" },
-    { english: "I need a taxi.", urdu: "مجھے ایک ٹیکسی چاہیے۔", category: "travel" },
-    { english: "I want to buy a ticket.", urdu: "میں ٹکٹ خریدنا چاہتا ہوں۔", category: "shopping" },
-    { english: "Do you accept credit cards?", urdu: "کیا آپ کریڈٹ کارڈ قبول کرتے ہیں؟", category: "shopping" },
-    { english: "Where can I buy a SIM card?", urdu: "میں سیم کارڈ کہاں خرید سکتا ہوں؟", category: "shopping" },
-    { english: "I like this city.", urdu: "مجھے یہ شہر پسند ہے۔", category: "general" },
-    { english: "I like this restaurant.", urdu: "مجھے یہ ریستوران پسند ہے۔", category: "food" },
-    { english: "I am learning Urdu.", urdu: "میں اردو سیکھ رہا ہوں۔", category: "general" },
-    { english: "Can you recommend a good hotel?", urdu: "کیا آپ اچھے ہوٹل کی سفارش کر سکتے ہیں؟", category: "travel" },
-    { english: "I would like to check in.", urdu: "میں چیک ان کرنا چاہوں گا۔", category: "travel" },
-    { english: "I would like to check out.", urdu: "میں چیک آؤٹ کرنا چاہوں گا۔", category: "travel" },
-    { english: "Can I have a receipt, please?", urdu: "کیا میں رسید حاصل کر سکتا ہوں؟", category: "shopping" },
-    { english: "Where is the bus station?", urdu: "بس اسٹیشن کہاں ہے؟", category: "travel" },
-    { english: "Is there a hospital nearby?", urdu: "کیا قریبی ہسپتال ہے؟", category: "travel" },
-    { english: "I need some medicine.", urdu: "مجھے کچھ دوا چاہیے۔", category: "health" },
-    { english: "Do you have a doctor available?", urdu: "کیا ڈاکٹر دستیاب ہے؟", category: "health" },
-    { english: "I like to read books.", urdu: "مجھے کتابیں پڑھنا پسند ہے۔", category: "general" },
-    { english: "I enjoy listening to music.", urdu: "مجھے موسیقی سننا پسند ہے۔", category: "general" },
-    { english: "I am going shopping.", urdu: "میں خریداری کے لیے جا رہا ہوں۔", category: "shopping" },
-    { english: "I want to buy groceries.", urdu: "میں سبزی اور خوراک خریدنا چاہتا ہوں۔", category: "shopping" },
-    { english: "I need to go to the bank.", urdu: "مجھے بینک جانا ہے۔", category: "travel" },
-    { english: "I need directions to the airport.", urdu: "مجھے ایئرپورٹ کے لیے ہدایات چاہیے۔", category: "travel" }
-];
+        // Function to generate sentence cards
+        function generateSentenceCards() {
+            const container = document.getElementById('sentence-cards-container');
+            container.innerHTML = '';
+            
+            // Get 12 random sentences
+            const randomSentences = getRandomSentences(12);
+            
+            randomSentences.forEach(sentence => {
+                const card = document.createElement('div');
+                card.className = 'sentence-card';
+                card.onclick = () => speakSentence(sentence.english);
+                
+                card.innerHTML = `
+                    <div class="sentence-card-header">
+                        <span class="sentence-card-category">${sentence.category}</span>
+                    </div>
+                    <div class="sentence-card-body">
+                        <div class="sentence-card-english">${sentence.english}</div>
+                        <div class="sentence-card-urdu">${sentence.urdu}</div>
+                    </div>
+                    <div class="sentence-card-footer">
+                        <button class="sentence-card-btn" onclick="event.stopPropagation(); speakSentence('${sentence.english.replace(/'/g, "\\'")}')">
+                            <i>🔊</i> Speak
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+        
+        // Function to get random sentences
+        function getRandomSentences(count) {
+            const shuffled = [...sentences].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+        
+        // Function to speak a sentence
+        function speakSentence(sentence) {
+            const utterance = new SpeechSynthesisUtterance(sentence);
+            utterance.lang = 'en-US';
+            utterance.rate = 1;
+            speechSynthesis.speak(utterance);
+            
+            // Track speech event with Google Analytics
+            gtag('event', 'speak_sentence_card', {
+                'sentence_length': sentence.length
+            });
+        }
+        
+        // Function to filter sentences by category
+        function filterSentencesByCategory(category) {
+            document.getElementById('category-select').value = category;
+            filterSentences();
+            
+            // Scroll to practice section
+            document.getElementById('practice').scrollIntoView({ behavior: 'smooth' });
+            
+            // Track category filter event with Google Analytics
+            gtag('event', 'filter_by_category', {
+                'category': category
+            });
+        }
 
         function loadSentencesFromFile() {
             // In a real implementation, this would fetch sentences from a JSON file or database
@@ -642,6 +994,9 @@ let sentences = [
             }
             
             alert("50 more sentences loaded successfully! Total sentences: " + sentences.length);
+            
+            // Regenerate sentence cards with new sentences
+            generateSentenceCards();
         }
 
         let currentSentenceIndex = 0;
@@ -657,6 +1012,12 @@ let sentences = [
             
             document.getElementById('english-sentence').textContent = filteredSentences[currentSentenceIndex].english;
             document.getElementById('urdu-translation').textContent = filteredSentences[currentSentenceIndex].urdu;
+            
+            // Track sentence view with Google Analytics
+            gtag('event', 'sentence_view', {
+                'sentence_category': filteredSentences[currentSentenceIndex].category,
+                'sentence_index': currentSentenceIndex
+            });
         }
 
         // Function to speak the current sentence
@@ -667,6 +1028,11 @@ let sentences = [
             utterance.lang = 'en-US';
             utterance.rate = 1;
             speechSynthesis.speak(utterance);
+            
+            // Track speech event with Google Analytics
+            gtag('event', 'speak_sentence', {
+                'sentence_category': filteredSentences[currentSentenceIndex].category
+            });
         }
 
         // Function for slow pronunciation
@@ -677,6 +1043,11 @@ let sentences = [
             utterance.lang = 'en-US';
             utterance.rate = 0.7;
             speechSynthesis.speak(utterance);
+            
+            // Track slow speech event with Google Analytics
+            gtag('event', 'slow_speak', {
+                'sentence_category': filteredSentences[currentSentenceIndex].category
+            });
         }
 
         // Function to move to the next sentence
@@ -693,6 +1064,11 @@ let sentences = [
             
             currentSentenceIndex = Math.floor(Math.random() * filteredSentences.length);
             updateSentence();
+            
+            // Track random sentence event with Google Analytics
+            gtag('event', 'random_sentence', {
+                'sentence_category': filteredSentences[currentSentenceIndex].category
+            });
         }
 
         // Function to filter sentences by category
@@ -711,6 +1087,13 @@ let sentences = [
             
             currentSentenceIndex = 0;
             updateSentence();
+            
+            // Track filter event with Google Analytics
+            gtag('event', 'filter_sentences', {
+                'filter_category': category,
+                'search_text': searchText,
+                'results_count': filteredSentences.length
+            });
         }
 
         // Function to load more sentences
@@ -730,15 +1113,27 @@ let sentences = [
                 // Restore button
                 button.innerHTML = originalText;
                 button.disabled = false;
+                
+                // Track load more event with Google Analytics
+                gtag('event', 'load_more_sentences', {
+                    'new_total_count': sentences.length
+                });
             }, 1500);
         }
 
-        // Initialize the first sentence
-        updateSentence();
+        // Initialize the page
+        function initPage() {
+            updateVisitorCounter();
+            updateSentence();
+            generateSentenceCards();
+            
+            // Add event listeners
+            document.getElementById('category-select').addEventListener('change', filterSentences);
+            document.getElementById('sentence-search').addEventListener('input', filterSentences);
+        }
 
-        // Add event listeners
-        document.getElementById('category-select').addEventListener('change', filterSentences);
-        document.getElementById('sentence-search').addEventListener('input', filterSentences);
+        // Initialize the page when it loads
+        window.onload = initPage;
     </script>
 </body>
 </html>
